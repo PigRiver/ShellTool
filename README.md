@@ -23,9 +23,9 @@ Auto format the codes from java files which are changed by yourself between two 
 
 将两次提交之间自己做了更改的java文件进行Android Studio自带的代码格式化。
 
-Background: As the codes of the old project are redundancy, the team is not allowed to format all the code for once, it is avoid to be hard to search the history changes log. The team request that, every time before release, format the codes from java files which are changed by yourself, so I write this script file to reduce the workload.
+Background: As the codes of the old project are redundancy, the team is not allowed to format all the code for once, it is avoid to the problem which is hard to search the history changes log, and any other unknown problem. The team request that, every time before release, format the codes from java files which are changed by yourself, so I write this script file to reduce the workload.
 
-背景：由于老代码冗余，项目不允许一次性将所有代码进行格式式，以避免查询历史更改记录困难及其他未知问题。项目要求每次迭代版本中，将自己更改了代码的java文件进行格式化，因此编写此脚本以减少工作量。
+背景：由于老代码冗余，项目不允许一次性将所有代码进行格式化，以避免查询历史更改记录困难及其他未知问题。项目要求每次迭代版本中，将自己更改了代码的java文件进行格式化，因此编写此脚本以减少工作量。
 
 
 ### Format
