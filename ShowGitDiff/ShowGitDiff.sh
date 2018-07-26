@@ -37,9 +37,9 @@ if [[ ! -e ${tempPath} ]]; then
 fi
 
 git checkout "$CommitHash1"
-zip -j -q -o "${tempPath}/${CommitHash1}".zip $changedFileList
+zip -q -o "${tempPath}/${CommitHash1}".zip $changedFileList
 git checkout "$CommitHash2"
-zip -j -q -o "${tempPath}/${CommitHash2}".zip $changedFileList
+zip -q -o "${tempPath}/${CommitHash2}".zip $changedFileList
 popd
 
 diffPath="./GitDiff"
@@ -49,10 +49,16 @@ if [[  -e ${diffPath} ]]; then
 fi
 
 mkdir -p ${diffPath}
-unzip -q -o "${tempPath}/${CommitHash1}".zip -d "${diffPath}/${CommitHash1}"
-unzip -q -o "${tempPath}/${CommitHash2}".zip -d "${diffPath}/${CommitHash2}"
+unzip -q -o "${tempPath}/${CommitHash1}.zip" -d "${diffPath}/${CommitHash1}-Cache"
+unzip -q -o "${tempPath}/${CommitHash2}.zip" -d "${diffPath}/${CommitHash2}-Cache"
 
 rm -f "${tempPath}/${CommitHash1}.zip"
 rm -f "${tempPath}/${CommitHash2}.zip"
+
+sh CopyToOneFolder.sh "${diffPath}/${CommitHash1}-Cache" "${diffPath}/${CommitHash1}"
+sh CopyToOneFolder.sh "${diffPath}/${CommitHash2}-Cache" "${diffPath}/${CommitHash2}"
+
+rm -rf "${diffPath}/${CommitHash1}-Cache"
+rm -rf "${diffPath}/${CommitHash2}-Cache"
 
 /usr/local/bin/bcomp "${diffPath}/${CommitHash1}" "${diffPath}/${CommitHash2}"
