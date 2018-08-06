@@ -36,11 +36,15 @@ if [[ ! -e ${tempPath} ]]; then
 	mkdir -p ${tempPath}
 fi
 
+echo "$changedFileList" >> "ChangeFileList.txt"
+
 git checkout "$CommitHash1"
-zip -q -o "${tempPath}/${CommitHash1}".zip $changedFileList
+zip -q -o "${tempPath}/${CommitHash1}".zip $changedFileList "ChangeFileList.txt"
 git checkout "$CommitHash2"
-zip -q -o "${tempPath}/${CommitHash2}".zip $changedFileList
+zip -q -o "${tempPath}/${CommitHash2}".zip $changedFileList "ChangeFileList.txt"
 popd
+
+rm -f "ChangeFileList.txt"
 
 diffPath="./GitDiff"
 
