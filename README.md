@@ -40,4 +40,18 @@ or add author name filter:
 sh AutoFormat.sh /Users/brucezhu/Code/GitDemo d7a9450ea15c99c7b2c673402d93cc9fcfb845d8 54978b51d2e79f4575c1bb87ebce7b6357ab2b12 Bruce
 ```
 
+## FindNotUsedImage.sh
+Search the images in the project which are not quoted by any codes. The script is to search all images in project, you can change the script to search which image folder you want to search.
+
+查找项目中所有没有被引用过的图片。该脚本将查找项目中所有图片的引用情况，如果你想只查找某个文件夹下的图片引用情况，可以自行更改脚本。
+
+### Format
+sh FindNotUsedImage.sh [Project Path]
+
+### Command Demo:
+
+```
+sh AutoFormat.sh /Users/brucezhu/Code/GitDemo 
+```
+
 
